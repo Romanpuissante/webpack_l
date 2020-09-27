@@ -1,1 +1,17 @@
-@import "~normalize.css"
+@import "~normalize.css";
+
+
+.container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.container > div {
+    text-align: center;
+    width: 33%;
+}
+
+.pie {
+    margin: 0 10px;
+    border: 1px solid darkslategray;
+}

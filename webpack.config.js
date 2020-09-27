@@ -4,6 +4,7 @@ const {CleanWebpackPlugin} = require('clean-webpack-plugin');
 const MiniCss = require('mini-css-extract-plugin');
 const OptimizeCss = require('optimize-css-assets-webpack-plugin');
 const Terser = require('terser-webpack-plugin');
+// const {BundleAnalyzerPlugin} = require('webpack-bundle-analyzer')
 
 
 const isDev = process.env.NODE_ENV === 'development';
@@ -30,7 +31,6 @@ module.exports = {
     context: path.resolve(__dirname, 'src'),
     entry: {
         "main": './index',
-        "analytics": './analytics'
     },
     output: {
         filename: '[name][contenthash].js',
@@ -61,7 +61,11 @@ module.exports = {
             {
                 test: /\.less$/,
                 use: [MiniCss.loader, 'css-loader', 'less-loader']
-            } 
+            } ,
+            {
+                test: /\.s[ac]ss$/,
+                use: [MiniCss.loader, 'css-loader', 'sass-loader']
+            }
         ]
     }
 }
